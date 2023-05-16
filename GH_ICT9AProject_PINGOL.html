@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Millimeter Converter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body style="background: black;">
+ <center>
+  <div class="container container1 form-control">
+<div class="col-md-5">
+    <h1 style="color: black ;">Millimeter Converter</h1>
+    <h3 style="color: black;">This converts Millimeters into Centimeters, Meters and Kilometers</h3>
+    <h5>You may press the arrows on the right side, inside the boxes to input your desired value, but of course you can type your desired value.</h5>
+
+    <form>
+    
+      <div class="container container1 form-control">
+            <label for="millimeters" class="col-sm-4 col-form-label">Millimeters:</label>
+            <div class="col-sm-10"><td>
+              <input type="number" class="form-control" id="millimeters" placeholder="Enter millimeters">
+            </div>
+        </div>
+        <div class="container container1 form-control">
+            <label for="centimeters" class="col-sm-4 col-form-label">Centimeters:</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="centimeters" readonly>
+            </div>
+        </div>
+         <div class="container container1 form-control">
+            <label for="meters" class="col-sm-4 col-form-label">Meters:</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="meters" readonly>
+            </div>
+        </div>
+        <div class="container container1 form-control">
+            <label for="kilometers" class="col-sm-4 col-form-label">Kilometers:</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="kilometers" readonly>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    const millimetersInput = document.getElementById('millimeters');
+    const centimetersInput = document.getElementById('centimeters');
+    const metersInput = document.getElementById('meters');
+    const kilometersInput = document.getElementById('kilometers');
+
+    millimetersInput.addEventListener('input', updateLengths);
+    function updateLengths() {
+        const millimeters = parseFloat(millimetersInput.value);
+        const centimeters = millimeters / 10;
+        const meters = millimeters / 1000;
+        const kilometers = millimeters / 1000000;
+
+        centimetersInput.value = centimeters;
+        metersInput.value = meters;
+        kilometersInput.value = kilometers;
+    }
+</script>
+</center>
+</body>
+</html>
